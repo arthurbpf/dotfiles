@@ -1,0 +1,15 @@
+[color]
+	ui = auto
+[user]
+	name = Arthur Fernandes
+	email = arthurbpfernandes@gmail.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+[alias]
+	ci = commit
+	co = checkout
+	cm = chekout master
+	cb = checkout -b
+	st = status -sb
+	sf = show --name-only
