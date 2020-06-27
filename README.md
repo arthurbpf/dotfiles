@@ -1,2 +1,2 @@
 # dotfiles
-My Linux system dotfiles, managed with [yadm](yadm.io)
+My Linux system dotfiles, managed with [yadm](https://yadm.io)
