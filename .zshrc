@@ -1,3 +1,6 @@
+#Changes $ZSH_CUSTOM variable to chosen location
+export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+
 #Runs keyboard color control script
 sh $HOME/.g512.sh
 
