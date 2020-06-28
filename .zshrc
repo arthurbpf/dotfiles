@@ -1,40 +1,35 @@
 # @arthurbpf's .zshrc file
-# At present time using zplug as plugin manager
+# At present time using Zinit as plugin manager (https://github.com/zdharma/zinit)
 
-### zplug installation (https://github.com/zplug/zplug)
-#if [[ ! -d $HOME/.zplug ]]; then
-#  print -P "🌺 Initializing zplug installation..."
-#  curl -sL --proto-redir -all,https "https://raw.githubusercontent.com/zplug/installer/master/installer.zsh" | zsh
-#
-#  while [[ ! -f $HOME/.zplug/init.zsh ]]; 
-#  do
-#    sleep 1
-#  done
-#fi
+### Start of Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-### Load zplug
-source $HOME/.zplug/init.zsh
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-### Make zplug manage itself (zplug update)
-  zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+### End of Zinit's installation
 
-### Plugins
-  zplug "zsh-users/zsh-completions", as:plugin, depth:1
-  zplug "zsh-users/zsh-autosuggestions", as:plugin, depth:1
-  
-### Syntax Highlighting (Must be last loaded plugin)
-  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+### Plugins 
+  zinit light zsh-users/zsh-completions
+  zinit light zsh-users/zsh-autosuggestions
+  zinit light zsh-users/zsh-syntax-highlighting
 
 ### Theme
-  zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
-### Install
-#  if ! zplug check; then
-#      zplug install
-#  fi
-
-### Load plugins
-  zplug load
+  zinit light denysdovhan/spaceship-prompt
 
 ### Custom aliases
   alias ll="ls -la"
