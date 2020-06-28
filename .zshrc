@@ -24,7 +24,7 @@ zinit light-mode for \
 ### End of Zinit's installation
 ### To update $ zinit self-update
 
-### Plugins 
+### Plugins
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light zsh-users/zsh-syntax-highlighting
@@ -36,7 +36,6 @@ zinit light-mode for \
   bindkey "^[[3~" delete-char
   bindkey "^[[H"  beginning-of-line
   bindkey "^[[F"  end-of-line
-  
 
 ### Custom aliases
   alias ll="ls -la"
