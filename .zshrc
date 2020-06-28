@@ -22,6 +22,7 @@ zinit light-mode for \
     zinit-zsh/z-a-patch-dl \
     zinit-zsh/z-a-bin-gem-node
 ### End of Zinit's installation
+### To update $ zinit self-update
 
 ### Plugins 
   zinit light zsh-users/zsh-completions
@@ -29,7 +30,13 @@ zinit light-mode for \
   zinit light zsh-users/zsh-syntax-highlighting
 
 ### Theme
-  zinit light denysdovhan/spaceship-prompt
+  zinit light sindresorhus/pure
+
+### Custom binds
+  bindkey "^[[3~" delete-char
+  bindkey "^[[H"  beginning-of-line
+  bindkey "^[[F"  end-of-line
+  
 
 ### Custom aliases
   alias ll="ls -la"
