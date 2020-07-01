@@ -39,7 +39,7 @@ zinit light-mode for \
 
 ### Custom aliases
   alias ll="ls -la"
-  alias pcu="yay -Syyu"
+  alias pcu="yay -Syu"
 ### Custom scripting
   #Runs keyboard color control script
   sh $HOME/.g512.sh
