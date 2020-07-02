@@ -32,6 +32,20 @@ zinit light-mode for \
 ### Theme
   zinit light sindresorhus/pure
 
+### Variables
+  # Sets history file
+  HISTFILE=$HOME/.zsh_history
+  # Sets maximum history file size
+  HISTSIZE=5000
+  # Sets current session commands to be saved to file
+  SAVEHIST=5000
+  # Appends into history file
+  setopt INC_APPEND_HISTORY
+  # Saves only one command if duplicates are found
+  setopt HIST_IGNORE_DUPS
+  # Adds a timestamp for each entry
+  setopt EXTENDED_HISTORY 
+
 ### Custom binds
   bindkey "^[[3~" delete-char
   bindkey "^[[H"  beginning-of-line
