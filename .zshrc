@@ -28,6 +28,7 @@ zinit light-mode for \
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light zsh-users/zsh-syntax-highlighting
+  zinit light supercrabtree/k
 
 ### Theme
   zinit light sindresorhus/pure
