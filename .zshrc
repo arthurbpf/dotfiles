@@ -24,6 +24,13 @@ zinit light-mode for \
 ### End of Zinit's installation
 ### To update $ zinit self-update
 
+### Enables autocompletion
+  autoload -Uz compinit
+  compinit
+  zstyle ":completion:*" menu select
+  setopt COMPLETE_ALIASES
+  zstyle ":completion::complete:*" gain-privileges 1
+
 ### Plugins
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
@@ -37,9 +44,9 @@ zinit light-mode for \
   # Sets history file
   HISTFILE=$HOME/.zsh_history
   # Sets maximum history file size
-  HISTSIZE=5000
+  HISTSIZE=50000
   # Sets current session commands to be saved to file
-  SAVEHIST=5000
+  SAVEHIST=50000
   # Appends into history file
   setopt INC_APPEND_HISTORY
   # Saves only one command if duplicates are found
