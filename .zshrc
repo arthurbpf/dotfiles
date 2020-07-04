@@ -44,12 +44,16 @@ zinit light-mode for \
   # Saves only one command if duplicates are found
   setopt HIST_IGNORE_DUPS
   # Adds a timestamp for each entry
-  setopt EXTENDED_HISTORY 
+  setopt EXTENDED_HISTORY
 
 ### Custom binds
-  bindkey "^[[3~" delete-char
-  bindkey "^[[H"  beginning-of-line
-  bindkey "^[[F"  end-of-line
+  bindkey "^[[3~"   delete-char        #DEL
+  bindkey "^[[H"    beginning-of-line  #HOME
+  bindkey "^[[F"    end-of-line        #END
+  bindkey "^[[1;5C" forward-word       #CTRL + RIGHT ARROW 
+  bindkey "^[[1;5D" backward-word      #CTRL + LEFT ARROW
+  bindkey "^H"      backward-kill-word #CTRL + BACKSPACE
+  bindkey "^[[3;5~" kill-word          #CTRL + DELETE
 
 ### Custom aliases
   alias ll="ls -la"
