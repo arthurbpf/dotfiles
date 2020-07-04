@@ -55,10 +55,10 @@ zinit light-mode for \
   setopt EXTENDED_HISTORY
 
 ### Custom binds
-  bindkey "^[[3~"   delete-char        #DEL
+  bindkey "^[[3~"   delete-char        #DELETE
   bindkey "^[[H"    beginning-of-line  #HOME
   bindkey "^[[F"    end-of-line        #END
-  bindkey "^[[1;5C" forward-word       #CTRL + RIGHT ARROW 
+  bindkey "^[[1;5C" forward-word       #CTRL + RIGHT ARROW
   bindkey "^[[1;5D" backward-word      #CTRL + LEFT ARROW
   bindkey "^H"      backward-kill-word #CTRL + BACKSPACE
   bindkey "^[[3;5~" kill-word          #CTRL + DELETE
@@ -66,6 +66,7 @@ zinit light-mode for \
 ### Custom aliases
   alias ll="ls -la"
   alias pcu="yay -Syu"
+
 ### Custom scripting
   #Runs keyboard color control script
   sh $HOME/.g512.sh
