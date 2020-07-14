@@ -67,6 +67,19 @@ zinit light-mode for \
   alias ll="ls -la"
   alias pcu="yay -Syu"
 
+### Custom functions
+  function forecast {
+    curl wttr.in/$1
+  }
+
+  function dictionary {
+    curl dict://dict.org/d:$1
+  }
+
+  function cheat {
+    curl cheat.sh/$1
+  }
+
 ### Custom scripting
   #Runs keyboard color control script
   sh $HOME/.g512.sh
