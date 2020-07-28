@@ -5,13 +5,13 @@ Config{
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     Top
-   , border =       BottomB
-   , borderColor =  "#646464"
+   -- , border =       BottomB
+   -- , borderColor =  "#646464"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%multicpu% | %coretemp% | %memory% }{ %RJTT% | %date%"
+   , template = "%UnsafeStdinReader%  }{ %multicpu% | %coretemp% | %memory% | %date%"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -37,19 +37,13 @@ Config{
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands = 
 
+        -- workspace panels
+        [ Run UnsafeStdinReader
+
         -- weather monitor
-        [ Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+        , Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
                              ] 36000
-
-        -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
-                             , "--Low"      , "1000"       -- units: B/s
-                             , "--High"     , "5000"       -- units: B/s
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
-                             ] 10
-
+                             
         -- cpu activity monitor
         , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
                              , "--Low"      , "50"         -- units: %
@@ -79,8 +73,8 @@ Config{
 
         -- battery monitor
         , Run Battery        [ "--template" , "Batt: <acstatus>"
-                             , "--Low"      , "10"        -- units: %
-                             , "--High"     , "80"        -- units: %
+                             , "--Low"      , "15"        -- units: %
+                             , "--High"     , "75"        -- units: %
                              , "--low"      , "darkred"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkgreen"
