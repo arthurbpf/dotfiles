@@ -79,7 +79,3 @@ zinit light-mode for \
   function cheat {
     curl cheat.sh/$1
   }
-
-### Custom scripting
-  #Runs keyboard color control script
-  sh $HOME/.g512.sh
