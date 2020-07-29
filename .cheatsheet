@@ -1,0 +1,2 @@
+#Set US and US(Intl) KB layouts to alternate with alt+space
+setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle'
