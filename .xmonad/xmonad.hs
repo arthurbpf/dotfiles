@@ -16,11 +16,13 @@ import           System.IO
 import           XMonad
 import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Layout.LayoutModifier
 import           XMonad.Layout.Spacing
 import qualified XMonad.StackSet as W
+import           XMonad.Util.EZConfig (additionalKeysP)
 import           XMonad.Util.Run (spawnPipe)
 import           XMonad.Util.SpawnOnce
 
@@ -85,7 +87,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_c), kill),
     -- Rotate through the available layout algorithms
     ((modm, xK_space), sendMessage NextLayout),
-    --  Reset the layouts on the current workspace to default
+    -- Reset the layouts on the current workspace to default
     ((modm .|. shiftMask, xK_space), setLayout $ XMonad.layoutHook conf),
     -- Resize viewed windows to the correct size
     ((modm, xK_n), refresh),
@@ -203,16 +205,17 @@ myLogHook h = do
 
 -- Startup hook
 myStartupHook = do
-  spawnOnce "nitrogen --restore &"
+  spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
   spawnOnce "picom &"
   spawnOnce "copyq &"
+  spawnOnce "nitrogen --restore &"
   spawnOnce "$HOME/.g512.sh &"
-  return ()
+  return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
 main = do
     xmproc <- spawnPipe "xmobar -x 0 $HOME/.xmobarrc"
-    xmonad $ docks def
+    xmonad $ ewmh $ docks $ def
         { terminal = myTerminal
         , focusFollowsMouse = myFocusFollowsMouse
         , clickJustFocuses = myClickJustFocuses
@@ -227,5 +230,6 @@ main = do
         , manageHook = myManageHook
         , startupHook = myStartupHook
         , logHook = myLogHook xmproc
+        , handleEventHook = handleEventHook def <+> fullscreenEventHook
         }
 
