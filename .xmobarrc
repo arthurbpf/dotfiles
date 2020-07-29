@@ -1,5 +1,4 @@
 Config{
-
    -- appearance
      font =         "xft:Fira Code:size=12:bold:antialias=true"
    , bgColor =      "black"
@@ -11,7 +10,7 @@ Config{
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%UnsafeStdinReader%  }{ %multicpu% | %coretemp% | %memory% | %date%"
+   , template = "%UnsafeStdinReader%  }{ %date%"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -90,7 +89,7 @@ Config{
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fc=#ffffff>%F (%a) %T</fc>" "date" 10
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")

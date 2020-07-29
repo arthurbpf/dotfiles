@@ -16,6 +16,7 @@ import           System.IO
 import           XMonad
 import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Layout.LayoutModifier
 import           XMonad.Layout.Spacing
@@ -78,6 +79,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_Return), spawn $ XMonad.terminal conf),
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run"),
+    -- launch firefox
+    ((modm, xK_f), spawn "firefox"),
     -- close focused window
     ((modm, xK_c), kill),
     -- Rotate through the available layout algorithms
@@ -194,6 +197,9 @@ myLogHook h = do
     , ppExtras  = [windowCount]                        -- # of windows current workspace
     , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
     }
+  <+> 
+  fadeInactiveLogHook fadeAmount
+      where fadeAmount = 1
 
 -- Startup hook
 myStartupHook = do
