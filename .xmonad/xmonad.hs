@@ -17,7 +17,6 @@ import           XMonad
 import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
-import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Layout.Gaps
 import           XMonad.Layout.LayoutModifier
@@ -203,9 +202,6 @@ myLogHook h = do
     , ppExtras  = [windowCount]                        -- # of windows current workspace
     , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
     }
-  <+> 
-  fadeInactiveLogHook fadeAmount
-      where fadeAmount = 1
 
 -- Startup hook
 myStartupHook = do
