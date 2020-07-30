@@ -19,7 +19,9 @@ import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Layout.Gaps
 import           XMonad.Layout.LayoutModifier
+import           XMonad.Layout.Renamed (renamed, Rename(Replace))
 import           XMonad.Layout.Spacing
 import qualified XMonad.StackSet as W
 import           XMonad.Util.EZConfig (additionalKeysP)
@@ -55,23 +57,6 @@ myClickJustFocuses = False
 -- Set mod key
 myModMask :: KeyMask
 myModMask = mod4Mask -- sets to "super key"
-
--- Set workspaces
-windowCount :: X (Maybe String)
-windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
-
-xmobarEscape = concatMap doubleLts
-  where doubleLts '<' = "<<"
-        doubleLts x   = [x]
-
-myWorkspaces = clickable . (map xmobarEscape)
-               -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["dev", "www", "sys", "doc", "vbox", "chat", "mus", "vid", "gfx"]
-    where                                                                       
-        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                            (i,ws) <- zip [1..9] l,                                        
-                            let n = i ]
-
 
 -- Key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) =
@@ -161,19 +146,38 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) =
     ]
 
 -- Layouts:
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
-  where
-    -- default tiling algorithm partitions the screen into two panes
-    tiled = Tall nmaster delta ratio
+-- Layout params
 
-    -- The default number of windows in the master pane
-    nmaster = 1
+-- Tall
+-- 1: The default number of windows in the master pane
+-- 2: Percent of screen to increment by when resizing panes
+-- 3: Default proportion of screen occupied by master pane
 
-    -- Default proportion of screen occupied by master pane
-    ratio = 1 / 2
+mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 
-    -- Percent of screen to increment by when resizing panes
-    delta = 3 / 100
+tall = renamed [Replace "tall"] $ mySpacing 2 $ Tall 1 (3/100) (1/2)
+fat = renamed [Replace "fat"] $ Mirror tall
+full = renamed [Replace "full"] $ mySpacing 0 $ Full
+
+myLayout = avoidStruts (tall ||| full ||| fat)
+
+
+-- Set workspaces
+windowCount :: X (Maybe String)
+windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+
+xmobarEscape = concatMap doubleLts
+  where doubleLts '<' = "<<"
+        doubleLts x   = [x]
+
+myWorkspaces = clickable . (map xmobarEscape)
+               -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+               $ ["dev", "www", "sys", "doc", "vbox", "chat", "mus", "vid", "gfx"]
+    where                                                                       
+        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
+                            (i,ws) <- zip [1..9] l,                                        
+                            let n = i ]
 
 
 -- Window rules:
