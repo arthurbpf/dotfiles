@@ -24,13 +24,16 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-
 case $session in
 	plasma|kde ) 
-		export DESKTOP_SESSION=plasma &
+		export DESKTOP_SESSION=plasma
 		exec startplasma-x11
 		;;
-	xmonad ) exec xmonad;;
+	xmonad ) 
+		exec xmonad
+		;;
 	# No known session, try to run it as command
-	* ) exec $1;;
+	* ) 
+		exec $1
+		;;
 esac
