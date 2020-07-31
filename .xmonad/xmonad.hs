@@ -206,10 +206,11 @@ myLogHook h = do
 -- Startup hook
 myStartupHook = do
   spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
-  spawnOnce "udiskie &"
   spawnOnce "picom --experimental-backends &"
-  spawnOnce "copyq &"
   spawnOnce "nitrogen --restore &"
+  spawnOnce "dunst &"
+  spawnOnce "copyq &"
+  spawnOnce "udiskie &"
   spawnOnce "$HOME/.g512.sh &"
   return()
 
