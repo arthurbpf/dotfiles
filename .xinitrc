@@ -1,5 +1,7 @@
 #!/bin/sh
 
+session=${1:-xmonad}
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -22,4 +24,13 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-exec xmonad
+
+case $session in
+	plasma|kde ) 
+		export DESKTOP_SESSION=plasma &
+		exec startplasma-x11
+		;;
+	xmonad ) exec xmonad;;
+	# No known session, try to run it as command
+	* ) exec $1;;
+esac
