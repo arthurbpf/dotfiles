@@ -1,6 +1,6 @@
 Config{
    -- appearance
-     font =         "xft:Fira Code:size=12:bold:antialias=true"
+     font =         "xft:FiraCode:size=12:antialias=true:hinting=true"
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     Top
@@ -10,7 +10,7 @@ Config{
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%UnsafeStdinReader%  }{ %date%"
+   , template = "  %UnsafeStdinReader%}{%cpu% | %memory% | %kbd% | %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,12 +39,20 @@ Config{
         -- workspace panels
         [ Run UnsafeStdinReader
 
-        -- weather monitor
-        , Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
-                             ] 36000
+        -- cpu individual cores activity monitor
+        , Run Cpu            [ "--template" , "CPU <vbar> <total>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 10
+        -- disk storage usage
+        , Run DiskU [("/", "/ <free>"), ("/home", "/home <free>")]
+                    ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 20
                              
-        -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+        -- cpu individual cores activity monitor
+        , Run MultiCpu       [ "--template" , "CPU: <total0>%|<total1>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "darkgreen"
@@ -62,9 +70,9 @@ Config{
                              ] 50
                           
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
-                             , "--Low"      , "20"        -- units: %
-                             , "--High"     , "90"        -- units: %
+        , Run Memory         [ "--template" ,"RAM <usedvbar> <usedratio>%"
+                             , "--Low"      , "40"        -- units: %
+                             , "--High"     , "65"        -- units: %
                              , "--low"      , "darkgreen"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkred"
@@ -89,11 +97,11 @@ Config{
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ffffff>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fc=#ffffff>%D (%a) %T</fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
-                             , ("us"         , "<fc=#8B0000>US</fc>")
+        , Run Kbd            [ ("us(intl)" , "<fc=darkgreen>BR</fc>")
+                             , ("us"       , "<fc=darkred>US</fc>")
                              ]
         ]
    }

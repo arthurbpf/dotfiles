@@ -79,3 +79,6 @@ zinit light-mode for \
   function cheat {
     curl cheat.sh/$1
   }
+
+### Custom scripting
+  pfetch

@@ -7,12 +7,12 @@
 #Startup script to define colors
 #g512-led -a ddded9
 
-color1=ff4a4a
-color2=ba3636
-color3=8f2929
-color4=7b2323
-color5=551818
-color6=350f0f
+color1=02efe7
+color2=01c5bb
+color3=01bab1
+color4=01928b
+color5=006f69
+color6=004743
 
 
 g512-led -kn esc $color1

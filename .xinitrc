@@ -25,7 +25,7 @@ if [ -f "$usermodmap" ]; then
 fi
 
 case $session in
-	plasma|kde ) 
+	plasma | kde ) 
 		export DESKTOP_SESSION=plasma
 		exec startplasma-x11
 		;;

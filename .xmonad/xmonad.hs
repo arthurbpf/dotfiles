@@ -29,13 +29,13 @@ import           XMonad.Util.SpawnOnce
 
 -- Colors definition
 color1 :: String
-color1 = "#219ecf"
+color1 = "#9942c3"
 
 color2 :: String
 color2 = "#dddddd"
 
 color3 :: String
-color3 = "#ff4a4a"
+color3 = "#02efe7"
 
 -- Borders width
 myBorderWidth :: Dimension
