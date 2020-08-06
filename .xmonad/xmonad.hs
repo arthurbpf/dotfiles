@@ -43,7 +43,7 @@ myBorderWidth = 3
 
 -- Default terminal emulator
 myTerminal :: String
-myTerminal = "alacritty"
+myTerminal = "kitty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -172,7 +172,7 @@ xmobarEscape = concatMap doubleLts
 
 myWorkspaces = clickable . (map xmobarEscape)
                -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["dev", "www", "sys", "doc", "vbox", "chat", "mus", "vid", "gfx"]
+               $ ["dev", "www", "sys", "doc", "chat", "media", "misc_0", "misc_1", "misc_2"]
     where                                                                       
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                             (i,ws) <- zip [1..9] l,                                        
