@@ -1,0 +1,78 @@
+!! Fonts
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+!! XTerm
+XTerm*renderFont: true
+XTerm*faceName: xft:FiraCode:size=10
+XTerm*faceSize: 10
+XTerm*utf8: true
+XTerm*locale: true
+
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> j: smaller-vt-font() \n\
+  Ctrl <Key> k: larger-vt-font()
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+XTerm*loginshell: true
+
+! number of lines to scrollback
+XTerm*savelines: 16000
+
+! double-click to select whole URLs
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+!! urxvt
+URxvt*imLocale: en_US.UTF-8
+URxvt*buffered: false
+URxvt.intensityStyles: false
+URxvt.font: xft:FiraCode:size=10
+URxvt.saveLines: 16000
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+
+!! Colors
+URxvt*foreground:   #bbc5ff
+URxvt*background:   [95]#282a36
+URxvt*cursorColor:  #bbc5ff
+
+XTerm*foreground: #bbc5ff
+XTerm*background: #282a36
+XTerm*cursorColor: #bbc5ff
+
+! black
+*.color0:       #101010  !! originally #292d3e
+*.color8:       #434758
+
+! red
+*.color1:       #f07178
+*.color9:       #ff8b92
+
+! green
+*.color2:       #c3e88d
+*.color10:      #ddffa7
+
+! yellow
+*.color3:       #ffcb6b
+*.color11:      #ffe585
+
+! blue
+*.color4:       #82aaff
+*.color12:      #9cc4ff
+
+! magenta
+*.color5:       #c792ea
+*.color13:      #e1acff
+
+! cyan
+*.color6:       #89ddff
+*.color14:      #a3f7ff
+
+! white
+*.color7:       #d0d0d0
+*.color15:      #ffffff
