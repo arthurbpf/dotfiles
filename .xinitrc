@@ -24,12 +24,16 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+# Enables numlock (numlockx package needs to be installed)
+numlockx
+
 case $session in
 	plasma | kde ) 
 		export DESKTOP_SESSION=plasma
 		exec startplasma-x11
 		;;
-	xmonad ) 
+	xmonad )
+		export QT_QPA_PLATFORMTHEME=qt5ct
 		exec xmonad
 		;;
 	# No known session, try to run it as command

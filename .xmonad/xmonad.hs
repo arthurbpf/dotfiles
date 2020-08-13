@@ -185,6 +185,7 @@ myManageHook =
     [ className =? "MPlayer" --> doFloat
     , className =? "Gimp" --> doFloat
     , className =? "rdesktop" --> doFloat
+    , title =? "Android Emulator" --> doFloat
     , resource =? "desktop_window" --> doIgnore
     , resource =? "kdesktop" --> doIgnore
     ]
