@@ -212,6 +212,8 @@ myStartupHook = do
   spawnOnce "dunst &"
   spawnOnce "copyq &"
   spawnOnce "udiskie &"
+  spawnOnce "/usr/lib/kdeconnectd &"
+  spawnOnce "xsetroot -cursor_name left_ptr &"
   spawnOnce "$HOME/.g512.sh &"
   return()
 
