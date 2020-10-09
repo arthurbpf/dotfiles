@@ -29,10 +29,11 @@ import           XMonad.Util.SpawnOnce
 
 -- Colors definition
 color1 :: String
-color1 = "#9942c3"
+-- color1 = "#9942c3"
+color1 = "#ffffff"
 
 color2 :: String
-color2 = "#dddddd"
+color2 = "#aaaaaa"
 
 color3 :: String
 color3 = "#02efe7"
