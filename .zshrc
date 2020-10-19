@@ -64,7 +64,7 @@ zinit light-mode for \
   bindkey "^[[3;5~" kill-word          #CTRL + DELETE
 
 ### Custom aliases
-  alias ll="ls -la"
+  alias ll="ls -l"
   alias pcu="yay -Syu"
 
 ### Custom functions
