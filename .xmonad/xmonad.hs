@@ -33,14 +33,14 @@ color1 :: String
 color1 = "#ffffff"
 
 color2 :: String
-color2 = "#aaaaaa"
+color2 = "#555555"
 
 color3 :: String
 color3 = "#02efe7"
 
 -- Borders width
 myBorderWidth :: Dimension
-myBorderWidth = 3
+myBorderWidth = 2
 
 -- Default terminal emulator
 myTerminal :: String
@@ -61,13 +61,9 @@ myModMask = mod4Mask -- sets to "super key"
 -- Key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) =
   M.fromList $
-    [ 
+    [
     -- launch a terminal
-    ((modm, xK_Return), spawn $ XMonad.terminal conf),
-    -- launch dmenu
-    ((modm, xK_p), spawn "dmenu_run"),
-    -- launch firefox
-    ((modm, xK_f), spawn "firefox"),
+    ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
     -- close focused window
     ((modm, xK_c), kill),
     -- Rotate through the available layout algorithms
@@ -85,7 +81,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- Move focus to the master window
     ((modm, xK_m), windows W.focusMaster),
     -- Swap the focused window and the master window
-    ((modm .|. shiftMask, xK_Return), windows W.swapMaster),
+    ((modm, xK_Return), windows W.swapMaster),
     -- Swap the focused window with the next window
     ((modm .|. shiftMask, xK_j), windows W.swapDown),
     -- Swap the focused window with the previous window
@@ -105,7 +101,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- Quit xmonad
     ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess)),
     -- Restart xmonad
-    ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+    ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
+    -- launch apps
+    -- launch firefox
+    ((modm, xK_f), spawn "firefox"),
+    -- launch dmenu
+    ((modm, xK_p), spawn "dmenu_run")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -162,7 +163,6 @@ full = renamed [Replace "full"] $ mySpacing 0 $ Full
 
 myLayout = avoidStruts (tall ||| full ||| fat)
 
-
 -- Set workspaces
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
@@ -174,11 +174,10 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces = clickable . (map xmobarEscape)
                -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
                $ ["dev", "www", "sys", "doc", "chat", "media", "misc_0", "misc_1", "misc_2"]
-    where                                                                       
+    where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                            (i,ws) <- zip [1..9] l,                                        
+                            (i,ws) <- zip [1..9] l,
                             let n = i ]
-
 
 -- Window rules:
 myManageHook =
@@ -192,15 +191,15 @@ myManageHook =
     ]
 
 -- Status bars and logging
-myLogHook h = do 
+myLogHook h = do
   dynamicLogWithPP xmobarPP
     { ppOutput  = hPutStrLn h
     , ppTitle   = xmobarColor color1 "" . shorten 100  -- Title of active window
     , ppCurrent = xmobarColor color3 "" . wrap "[" "]" -- Current workspace in xmobar
-    , ppVisible = xmobarColor color3 "" . wrap "(" ")" -- Visible but not current workspace 
+    , ppVisible = xmobarColor color3 "" . wrap "(" ")" -- Visible but not current workspace
     , ppHidden  = xmobarColor color2 "" . wrap "*" ""  -- Hidden workspaces in xmobar
     , ppUrgent  = xmobarColor "red"  "" . wrap "!" "!" -- Urgent workspace
-    , ppHiddenNoWindows = xmobarColor "grey" ""        -- Hidden workspaces (no windows) 
+    , ppHiddenNoWindows = xmobarColor "grey" ""        -- Hidden workspaces (no windows)
     , ppExtras  = [windowCount]                        -- # of windows current workspace
     , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
     }
