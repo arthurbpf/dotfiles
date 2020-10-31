@@ -215,6 +215,7 @@ myStartupHook = do
   spawnOnce "/usr/lib/kdeconnectd &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
   spawnOnce "$HOME/.g512.sh &"
+  spawnOnce "redshift -l -28.72708:-49.22799 &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
