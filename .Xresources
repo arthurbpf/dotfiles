@@ -38,12 +38,12 @@ URxvt*.cursorColor: white
 
 !! Colors
 URxvt*foreground:   #ffffff
-URxvt*background:   #282a36
+URxvt*background:   #000000
 URxvt*cursorColor:  #ffffff
 
-XTerm*foreground: #bbc5ff
-XTerm*background: #282a36
-XTerm*cursorColor: #bbc5ff
+XTerm*foreground: #ffffff
+XTerm*background: #000000
+XTerm*cursorColor: #ffffff
 
 ! black
 *.color0:       #101010
