@@ -29,18 +29,20 @@ import           XMonad.Util.SpawnOnce
 
 -- Colors definition
 color1 :: String
--- color1 = "#9942c3"
 color1 = "#ffffff"
 
 color2 :: String
 color2 = "#555555"
 
 color3 :: String
-color3 = "#02efe7"
+color3 = "#aaaaaa"
+
+color4 :: String
+color4 = "#02efe7"
 
 -- Borders width
 myBorderWidth :: Dimension
-myBorderWidth = 2
+myBorderWidth = 1
 
 -- Default terminal emulator
 myTerminal :: String
@@ -195,11 +197,11 @@ myLogHook h = do
   dynamicLogWithPP xmobarPP
     { ppOutput  = hPutStrLn h
     , ppTitle   = xmobarColor color1 "" . shorten 100  -- Title of active window
-    , ppCurrent = xmobarColor color3 "" . wrap "[" "]" -- Current workspace in xmobar
-    , ppVisible = xmobarColor color3 "" . wrap "(" ")" -- Visible but not current workspace
-    , ppHidden  = xmobarColor color2 "" . wrap "*" ""  -- Hidden workspaces in xmobar
+    , ppCurrent = xmobarColor color4 "" . wrap "[" "]" -- Current workspace in xmobar
+    , ppVisible = xmobarColor color4 "" . wrap "(" ")" -- Visible but not current workspace
+    , ppHidden  = xmobarColor color3 "" . wrap "*" ""  -- Hidden workspaces in xmobar
     , ppUrgent  = xmobarColor "red"  "" . wrap "!" "!" -- Urgent workspace
-    , ppHiddenNoWindows = xmobarColor "grey" ""        -- Hidden workspaces (no windows)
+    , ppHiddenNoWindows = xmobarColor color2 ""        -- Hidden workspaces (no windows)
     , ppExtras  = [windowCount]                        -- # of windows current workspace
     , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
     }
