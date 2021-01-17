@@ -108,7 +108,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch firefox
     ((modm, xK_f), spawn "firefox"),
     -- launch dmenu
-    ((modm, xK_p), spawn "dmenu_run")
+    ((modm, xK_p), spawn "dmenu_run"),
+    -- launch joplin
+    ((modm, xK_j), spawn "joplin-desktop")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
