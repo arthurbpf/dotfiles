@@ -1,18 +1,7 @@
---
---  @arthurbpf's config file.
---
-
--- Imports
-
--- Data
 import qualified Data.Map as M
 import           Data.Monoid
-
--- System
 import           System.Exit
 import           System.IO
-
--- XMonad
 import           XMonad
 import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
@@ -28,23 +17,16 @@ import           XMonad.Util.Run (spawnPipe)
 import           XMonad.Util.SpawnOnce
 
 -- Colors definition
-color1 :: String
 color1 = "#ffffff"
-
-color2 :: String
 color2 = "#555555"
-
-color3 :: String
 color3 = "#aaaaaa"
-
-color4 :: String
 color4 = "#02efe7"
 
 -- Borders width
 myBorderWidth :: Dimension
 myBorderWidth = 1
 
--- Default terminal emulator
+-- Terminal emulator
 myTerminal :: String
 myTerminal = "kitty"
 
@@ -58,7 +40,7 @@ myClickJustFocuses = False
 
 -- Set mod key
 myModMask :: KeyMask
-myModMask = mod4Mask -- sets to "super key"
+myModMask = mod4Mask
 
 -- Key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) =
@@ -104,13 +86,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess)),
     -- Restart xmonad
     ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
-    -- launch apps
+
     -- launch firefox
     ((modm, xK_f), spawn "firefox"),
     -- launch dmenu
-    ((modm, xK_p), spawn "dmenu_run"),
-    -- launch joplin
-    ((modm, xK_j), spawn "joplin-desktop")
+    ((modm, xK_p), spawn "dmenu_run")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -127,37 +107,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
         (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
     ]
 
--- Mouse bindings: default actions bound to mouse events
-myMouseBindings (XConfig {XMonad.modMask = modm}) =
-  M.fromList $
-    -- mod-button1, Set the window to floating mode and move by dragging
-    [ ( (modm, button1),
-        ( \w ->
-            focus w >> mouseMoveWindow w
-              >> windows W.shiftMaster
-        )
-      ),
-      -- mod-button2, Raise the window to the top of the stack
-      ((modm, button2), (\w -> focus w >> windows W.shiftMaster)),
-      -- mod-button3, Set the window to floating mode and resize by dragging
-      ( (modm, button3),
-        ( \w ->
-            focus w >> mouseResizeWindow w
-              >> windows W.shiftMaster
-        )
-      )
-      -- you may also bind events to the mouse scroll wheel (button4 and button5)
-
-    ]
-
 -- Layouts:
 -- Layout params
-
--- Tall
--- 1: The default number of windows in the master pane
--- 2: Percent of screen to increment by when resizing panes
--- 3: Default proportion of screen occupied by master pane
-
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 
@@ -171,17 +122,7 @@ myLayout = avoidStruts (tall ||| full ||| fat)
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-xmobarEscape = concatMap doubleLts
-  where doubleLts '<' = "<<"
-        doubleLts x   = [x]
-
-myWorkspaces = clickable . (map xmobarEscape)
-               -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["dev", "www", "sys", "doc", "chat", "media", "misc_0", "misc_1", "misc_2"]
-    where
-        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                            (i,ws) <- zip [1..9] l,
-                            let n = i ]
+myWorkspaces = ["dev", "www", "sys", "doc", "chat", "media", "misc_0", "misc_1", "misc_2"]
 
 -- Window rules:
 myManageHook =
@@ -189,9 +130,6 @@ myManageHook =
     [ className =? "MPlayer" --> doFloat
     , className =? "Gimp" --> doFloat
     , className =? "rdesktop" --> doFloat
-    , title =? "Android Emulator" --> doFloat
-    , resource =? "desktop_window" --> doIgnore
-    , resource =? "kdesktop" --> doIgnore
     ]
 
 -- Status bars and logging
@@ -235,7 +173,6 @@ main = do
         , focusedBorderColor = color1
         , normalBorderColor = color2
         , keys = myKeys
-        , mouseBindings = myMouseBindings
         , layoutHook = myLayout
         , manageHook = myManageHook
         , startupHook = myStartupHook
