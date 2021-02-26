@@ -122,7 +122,8 @@ myLayout = avoidStruts (tall ||| full ||| fat)
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-myWorkspaces = ["dev", "www", "sys", "doc", "chat", "media", "misc_0", "misc_1", "misc_2"]
+-- myWorkspaces = ["dev", "www", "sys", "doc", "chat", "media", "misc_0", "misc_1", "misc_2"]
+myWorkspaces = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
 
 -- Window rules:
 myManageHook =
