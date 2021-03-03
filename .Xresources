@@ -61,7 +61,8 @@ URxvt*.cursorColor: white
 
 ! Tokyo Night
 *.foreground: #a4acd0
-*.background: #16161e
+!*.background: #16161e
+*.background: #000000
 *.cursorColor: #f8f8f2
 ! black
 *.color0:       #363b54
