@@ -27,6 +27,13 @@ URxvt*.saveLines: 16000
 URxvt*.scrollBar: false
 URxvt*.cursorColor: white
 
+!! Polybar
+polybar.activeWorkspaceFg: #02efe7
+polybar.occupiedWorkspaceFg: #aaaaaa
+polybar.emptyWorkspaceFg: #555555
+polybar.urgentWorkspaceFg: #ff0000
+
+!! XMonad
 
 ! Colors
 

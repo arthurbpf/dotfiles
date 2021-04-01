@@ -1,0 +1,47 @@
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[module/ewmh]
+type = internal/xworkspaces
+enable-click = false
+enable-scroll = false
+
+label-active = " [%name%]"
+label-active-foreground = ${xrdb:polybar.activeWorkspaceFg:#02efe7}
+label-occupied = " *%name%"
+label-occupied-foreground = ${xrdb:polybar.occupiedWorkspaceFg:#aaaaaa}
+label-empty-foreground = ${xrdb:polybar.emptyWorkspaceFg:#555555}
+label-urgent-foreground = ${xrdb:polybar.urgentWorkspaceFg:#ff0000}
+
+[module/workspaces-xmonad]
+type = custom/script
+exec = tail -F /tmp/.xmonad-workspace-log
+tail = true
+
+[module/title-xmonad]
+type = custom/script
+exec = tail -F /tmp/.xmonad-title-log
+tail = true
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %d/%m/%Y%
+time = %H:%M
+date-alt = %A, %d %B de %Y
+time-alt = %H:%M:%S
+label = %date% %time%
+
+[bar/top]
+bottom = false
+fixed-center = true
+width = 100%
+wm-name = polybar-top
+locale = pt_BR.UTF-8
+
+font-0 = monospace:size=10;antialiasing=true
+
+tray-position = right
+modules-left = ewmh
+modules-right = date

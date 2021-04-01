@@ -28,7 +28,7 @@ myBorderWidth = 1
 
 -- Terminal emulator
 myTerminal :: String
-myTerminal = "kitty"
+myTerminal = "st"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -159,11 +159,12 @@ myStartupHook = do
   spawnOnce "xsetroot -cursor_name left_ptr &"
   spawnOnce "$HOME/.g512.sh &"
   spawnOnce "redshift -l -28.72708:-49.22799 &"
+  spawnOnce "polybar top &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
 main = do
-    xmproc <- spawnPipe "xmobar -x 0 $HOME/.xmobarrc"
+    -- xmproc <- spawnPipe "xmobar -x 0 $HOME/.xmobarrc"
     xmonad $ ewmh $ docks $ def
         { terminal = myTerminal
         , focusFollowsMouse = myFocusFollowsMouse
@@ -177,6 +178,6 @@ main = do
         , layoutHook = myLayout
         , manageHook = myManageHook
         , startupHook = myStartupHook
-        , logHook = myLogHook xmproc
+        -- , logHook = myLogHook xmproc
         , handleEventHook = handleEventHook def <+> fullscreenEventHook
         }
