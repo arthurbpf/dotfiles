@@ -58,6 +58,7 @@ zinit light-mode for \
   bindkey "^[[3~"   delete-char        #DELETE
   bindkey "^[[H"    beginning-of-line  #HOME
   bindkey "^[[F"    end-of-line        #END
+  bindkey "^[[4~"   end-of-line        #END (st)
   bindkey "^[[1;5C" forward-word       #CTRL + RIGHT ARROW
   bindkey "^[[1;5D" backward-word      #CTRL + LEFT ARROW
   bindkey "^H"      backward-kill-word #CTRL + BACKSPACE
