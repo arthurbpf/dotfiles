@@ -88,7 +88,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
 
     -- launch firefox
-    ((modm, xK_f), spawn "firefox"),
+    ((modm, xK_i), spawn "firefox"),
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run")
     ]
@@ -152,19 +152,21 @@ myStartupHook = do
   spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
   spawnOnce "picom --experimental-backends &"
   spawnOnce "nitrogen --restore &"
-  spawnOnce "dunst &"
-  spawnOnce "copyq &"
-  spawnOnce "udiskie &"
   spawnOnce "/usr/lib/kdeconnectd &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
   spawnOnce "$HOME/.g512.sh &"
+  spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
+  spawnOnce "blueman-applet &"
+  spawnOnce "flameshot &"
+  spawnOnce "dunst &"
+  spawnOnce "copyq &"
+  spawnOnce "udiskie &"
   spawnOnce "redshift -l -28.72708:-49.22799 &"
-  spawnOnce "polybar top &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
 main = do
-    -- xmproc <- spawnPipe "xmobar -x 0 $HOME/.xmobarrc"
+    xmproc <- spawnPipe "xmobar -x 0 $HOME/.xmobarrc"
     xmonad $ ewmh $ docks $ def
         { terminal = myTerminal
         , focusFollowsMouse = myFocusFollowsMouse
@@ -178,6 +180,6 @@ main = do
         , layoutHook = myLayout
         , manageHook = myManageHook
         , startupHook = myStartupHook
-        -- , logHook = myLogHook xmproc
+        , logHook = myLogHook xmproc
         , handleEventHook = handleEventHook def <+> fullscreenEventHook
         }

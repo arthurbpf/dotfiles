@@ -3,7 +3,7 @@ Config{
      font =         "xft:FiraCode:size=10:antialias=true:hinting=true"
    , bgColor =      "black"
    , fgColor =      "#646464"
-   , position =     Top
+   , position =     TopSize L 90 22
    -- , border =       BottomB
    -- , borderColor =  "#646464"
 
@@ -34,7 +34,7 @@ Config{
    --   The --template option controls how the plugin is displayed. Text
    --   color can be set by enclosing in <fc></fc> tags. For more details
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
-   , commands = 
+   , commands =
 
         -- workspace panels
         [ Run UnsafeStdinReader
@@ -50,7 +50,7 @@ Config{
         -- disk storage usage
         , Run DiskU [("/", "/ <free>"), ("/home", "/home <free>")]
                     ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 20
-                             
+
         -- cpu individual cores activity monitor
         , Run MultiCpu       [ "--template" , "CPU: <total0>%|<total1>%"
                              , "--Low"      , "50"         -- units: %
@@ -68,7 +68,7 @@ Config{
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkred"
                              ] 50
-                          
+
         -- memory usage monitor
         , Run Memory         [ "--template" ,"RAM <usedvbar> <usedratio>%"
                              , "--Low"      , "40"        -- units: %
@@ -95,7 +95,7 @@ Config{
                                        , "-i"	, "<fc=#006000>Charged</fc>"
                              ] 50
 
-        -- time and date indicator 
+        -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "<fc=#ffffff>%D (%a) %T</fc>" "date" 10
 

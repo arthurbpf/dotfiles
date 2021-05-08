@@ -30,16 +30,17 @@ numlockx &
 case $session in
 	plasma | kde )
 		export DESKTOP_SESSION=plasma
+		$HOME/.screenlayout/screenlayout.sh
 		exec startplasma-x11
 		;;
 	xmonad )
 		export QT_QPA_PLATFORMTHEME=qt5ct
-		$HOME/.screenlayout/screenlayout.sh &
+		$HOME/.screenlayout/screenlayout.sh
 		exec xmonad
 		;;
 	dwm )
 		export QT_QPA_PLATFORMTHEME=qt5ct
-		$HOME/.screenlayout/screenlayout.sh &
+		$HOME/.screenlayout/screenlayout.sh
 		exec dwm
 		;;
 	# No known session, try to run it as command
