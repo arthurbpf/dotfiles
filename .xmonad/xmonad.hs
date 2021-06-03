@@ -87,8 +87,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- Restart xmonad
     ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
 
-    -- launch firefox
-    ((modm, xK_i), spawn "firefox"),
+    -- launch internet browser
+    ((modm, xK_i), spawn "chromium"),
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run")
     ]
