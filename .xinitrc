@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 session=${1:-xmonad}
@@ -35,6 +36,11 @@ case $session in
 		export QT_QPA_PLATFORMTHEME=qt5ct
 		$HOME/.screenlayout/screenlayout.sh
 		exec xmonad
+		;;
+	gnome )
+		export XDG_SESSION_TYPE=x11
+		export GDK_BACKEND=x11
+		exec gnome-session
 		;;
 	xfce )
 		$HOME/.screenlayout/screenlayout.sh
