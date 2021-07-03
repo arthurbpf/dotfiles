@@ -27,16 +27,23 @@ fi
 # Enables numlock (numlockx package needs to be installed)
 numlockx &
 
+# Solves keyring problems
+/etc/X11/xinit/xinitrc.d/50-systemd-user.sh &
+
 case $session in
-	plasma | kde )
-		export DESKTOP_SESSION=plasma
-		$HOME/.screenlayout/screenlayout.sh
-		exec startplasma-x11
-		;;
 	xmonad )
 		export QT_QPA_PLATFORMTHEME=qt5ct
 		$HOME/.screenlayout/screenlayout.sh
 		exec xmonad
+		;;
+	xfce )
+		$HOME/.screenlayout/screenlayout.sh
+		exec startxfce4
+		;;
+	plasma | kde )
+		export DESKTOP_SESSION=plasma
+		$HOME/.screenlayout/screenlayout.sh
+		exec startplasma-x11
 		;;
 	dwm )
 		export QT_QPA_PLATFORMTHEME=qt5ct
