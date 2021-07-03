@@ -90,7 +90,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch internet browser
     ((modm, xK_i), spawn "chromium"),
     -- launch dmenu
-    ((modm, xK_p), spawn "dmenu_run")
+    ((modm, xK_p), spawn "dmenu_run"),
+    -- launch thunar
+    ((modm, xK_slash), spawn "thunar")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -157,6 +159,8 @@ myStartupHook = do
   spawnOnce "$HOME/.g512.sh &"
   spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
   spawnOnce "blueman-applet &"
+  spawnOnce "pasystray &"
+  spawnOnce "nm-applet &"
   spawnOnce "flameshot &"
   spawnOnce "dunst &"
   spawnOnce "copyq &"
