@@ -92,7 +92,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run"),
     -- launch thunar
-    ((modm, xK_slash), spawn "thunar")
+    ((modm, xK_slash), spawn "pcmanfm")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
