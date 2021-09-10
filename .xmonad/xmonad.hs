@@ -92,7 +92,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run"),
     -- launch thunar
-    ((modm, xK_slash), spawn "pcmanfm")
+    ((modm, xK_slash), spawn "thunar")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -155,7 +155,6 @@ myStartupHook = do
   spawnOnce "picom --experimental-backends &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
-  spawnOnce "$HOME/.g512.sh &"
   spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
   spawnOnce "blueman-applet &"
   spawnOnce "pasystray &"
@@ -163,9 +162,9 @@ myStartupHook = do
   spawnOnce "flameshot &"
   spawnOnce "dunst &"
   spawnOnce "copyq &"
-  spawnOnce "udiskie &"
   spawnOnce "steam -silent &"
-  spawnOnce "lxqt-policykit-agent &"
+  spawnOnce "xss-lock ~/.lock.sh &"
+  spawnOnce "openrgb -p active &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
