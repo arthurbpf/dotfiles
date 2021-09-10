@@ -33,26 +33,10 @@ numlockx &
 
 case $session in
 	xmonad )
-		export QT_QPA_PLATFORMTHEME=qt5ct
 		$HOME/.screenlayout/screenlayout.sh
 		exec xmonad
 		;;
-	gnome )
-		export XDG_SESSION_TYPE=x11
-		export GDK_BACKEND=x11
-		exec gnome-session
-		;;
-	xfce )
-		$HOME/.screenlayout/screenlayout.sh
-		exec startxfce4
-		;;
-	plasma | kde )
-		export DESKTOP_SESSION=plasma
-		$HOME/.screenlayout/screenlayout.sh
-		exec startplasma-x11
-		;;
 	dwm )
-		export QT_QPA_PLATFORMTHEME=qt5ct
 		$HOME/.screenlayout/screenlayout.sh
 		exec dwm
 		;;
