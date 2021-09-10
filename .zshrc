@@ -66,7 +66,6 @@ zinit light-mode for \
 
 ### Custom aliases
   alias ll="ls -l"
-  alias pcu="yay -Syu"
 
 ### Custom functions
   function forecast {
