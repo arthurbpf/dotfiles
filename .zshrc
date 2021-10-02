@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # @arthurbpf's .zshrc file
 # At present time using Zinit as plugin manager (https://github.com/zdharma/zinit)
 
@@ -38,7 +45,7 @@ zinit light-mode for \
   zinit light supercrabtree/k
 
 ### Theme
-  zinit light sindresorhus/pure
+  zinit light romkatv/powerlevel10k
 
 ### Variables
   # Sets history file
@@ -89,5 +96,18 @@ zinit light-mode for \
       fortune | cowsay -f $THISCOW -W 100
   }
 
-### Custom scripting
-  cowsayfortune
+  function node_module_folders {
+      mkdir infra
+      mkdir infra/http
+      mkdir infra/http/controllers
+      mkdir infra/http/routers
+      mkdir infra/typeorm
+      mkdir infra/typeorm/entities
+      mkdir infra/typeorm/repositories
+      mkdir repositories
+      mkdir services
+  }
+
+### To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
