@@ -33,11 +33,9 @@ numlockx &
 
 case $session in
 	xmonad )
-		$HOME/.screenlayout/screenlayout.sh
 		exec xmonad
 		;;
 	dwm )
-		$HOME/.screenlayout/screenlayout.sh
 		exec dwm
 		;;
 	# No known session, try to run it as command
