@@ -11,6 +11,7 @@ import           XMonad.Layout.Gaps
 import           XMonad.Layout.LayoutModifier
 import           XMonad.Layout.Renamed (renamed, Rename(Replace))
 import           XMonad.Layout.Spacing
+import           XMonad.Layout.NoBorders (smartBorders)
 import qualified XMonad.StackSet as W
 import           XMonad.Util.EZConfig (additionalKeysP)
 import           XMonad.Util.Run (spawnPipe)
@@ -91,8 +92,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_i), spawn "chromium"),
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run"),
-    -- launch thunar
-    ((modm, xK_slash), spawn "thunar")
+    -- launch file manager
+    ((modm, xK_slash), spawn "pcmanfm")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -152,6 +153,7 @@ myLogHook h = do
 -- Startup hook
 myStartupHook = do
   spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
+  spawnOnce "udiskie &"
   spawnOnce "picom --experimental-backends &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
@@ -180,7 +182,7 @@ main = do
         , focusedBorderColor = color1
         , normalBorderColor = color2
         , keys = myKeys
-        , layoutHook = myLayout
+        , layoutHook = smartBorders $ myLayout
         , manageHook = myManageHook
         , startupHook = myStartupHook
         , logHook = myLogHook xmproc
