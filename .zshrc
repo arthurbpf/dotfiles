@@ -9,27 +9,12 @@ fi
 # At present time using Zinit as plugin manager (https://github.com/zdharma/zinit)
 
 ### Start of Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+if [[ ! -f $HOME/.zplug/init.zsh ]]; then
+    print -P "Installing zplug..."
+    git clone https://github.com/zplug/zplug $HOME/.zplug
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
-### End of Zinit's installation
-### To update $ zinit self-update
+source "$HOME/.zplug/init.zsh"
 
 ### Enables autocompletion
   autoload -Uz compinit
@@ -39,13 +24,23 @@ zinit light-mode for \
   zstyle ":completion::complete:*" gain-privileges 1
 
 ### Plugins
-  zinit light zsh-users/zsh-completions
-  zinit light zsh-users/zsh-autosuggestions
-  zinit light zsh-users/zsh-syntax-highlighting
-  zinit light supercrabtree/k
+  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-autosuggestions"
+  zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "supercrabtree/k"
 
 ### Theme
-  zinit light romkatv/powerlevel10k
+  zplug "romkatv/powerlevel10k", as:theme
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+    echo
+fi
+
+zplug load
 
 ### Variables
   # Sets history file
