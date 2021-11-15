@@ -93,7 +93,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run"),
     -- launch file manager
-    ((modm, xK_slash), spawn "pcmanfm")
+    ((modm, xK_slash), spawn "pcmanfm"),
+    -- take a screenshot
+    ((0, xK_Print), spawn "flameshot gui"),
+    -- open copyq
+    ((modm, xK_v), spawn "copyq show"),
+    -- lock screen
+    ((modm .|. shiftMask, xK_l), spawn "sleep 1 && xset dpms force suspend")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -164,7 +170,7 @@ myStartupHook = do
   spawnOnce "flameshot &"
   spawnOnce "dunst &"
   spawnOnce "copyq &"
-  spawnOnce "steam -silent &"
+  spawnOnce "lxqt-policykit-agent &"
   spawnOnce "xss-lock ~/.lock.sh &"
   spawnOnce "openrgb -p active &"
   return()
