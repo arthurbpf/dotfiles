@@ -1,9 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # @arthurbpf's .zshrc file
 # At present time using Zinit as plugin manager (https://github.com/zdharma/zinit)
@@ -27,6 +21,7 @@ source "$HOME/.zplug/init.zsh"
   zplug "zsh-users/zsh-completions"
   zplug "zsh-users/zsh-autosuggestions"
   zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "softmoth/zsh-vim-mode"
   zplug "supercrabtree/k"
 
 ### Theme
@@ -68,6 +63,7 @@ zplug load
 
 ### Custom aliases
   alias ll="ls -l"
+  alias enw="emacs -nw"
 
 ### Custom functions
   function forecast {
@@ -106,3 +102,7 @@ zplug load
 ### To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
