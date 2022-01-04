@@ -11,33 +11,47 @@ set incsearch
 set scrolloff=8
 set colorcolumn=80
 set signcolumn=yes
+" set clipboard+=unnamedplus
 
 set nocompatible
 filetype plugin on
 syntax on
 
+let mapleader=" "
+
 call plug#begin('~/.vim/plugged')
 
+" syntax highlighting
 Plug 'sheerun/vim-polyglot'
+
+" auto pairing of (, [ and {
+Plug 'jiangmiao/auto-pairs'
+
+" note taking
 Plug 'vimwiki/vimwiki'
+
+" smooth scrolling for C-d and C-u
 Plug 'psliwka/vim-smoothie'
 
+" fuzzy finder config
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+
+" status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" editorconfig plugin
+Plug 'editorconfig/editorconfig-vim'
+
+" neovim only plugins
 if has('nvim')
+	" LSP support
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
 endif
 
 call plug#end()
-
-if has('nvim')
-	lua require'lspconfig'.tsserver.setup{}
-endif
-
-let mapleader=" "
-if has('nvim')
-	nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-endif
 
 augroup RUN_AT_START
     autocmd!
