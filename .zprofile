@@ -1,3 +1,3 @@
 emulate sh
-source .profile
+source ~/.profile
 emulate zsh
