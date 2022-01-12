@@ -17,7 +17,7 @@ source "$HOME/.zplug/init.zsh"
   zplug "zsh-users/zsh-completions"
   zplug "zsh-users/zsh-autosuggestions"
   zplug "zsh-users/zsh-syntax-highlighting"
-  zplug "softmoth/zsh-vim-mode"
+  # zplug "softmoth/zsh-vim-mode"
   zplug "supercrabtree/k"
 
 ### Theme
