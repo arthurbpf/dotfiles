@@ -12,6 +12,7 @@ set scrolloff=8
 set colorcolumn=80
 set signcolumn=yes
 " set clipboard+=unnamedplus
+set nowrap
 
 set nocompatible
 filetype plugin on
@@ -26,6 +27,9 @@ Plug 'sheerun/vim-polyglot'
 
 " auto pairing of (, [ and {
 Plug 'jiangmiao/auto-pairs'
+
+" change surrounding tags or quotes
+Plug 'tpope/vim-surround'
 
 " note taking
 Plug 'vimwiki/vimwiki'
@@ -49,6 +53,9 @@ Plug 'editorconfig/editorconfig-vim'
 if has('nvim')
 	" LSP support
 	Plug 'neovim/nvim-lspconfig'
+
+	" Code formatting
+	Plug 'sbdchd/neoformat'
 endif
 
 call plug#end()

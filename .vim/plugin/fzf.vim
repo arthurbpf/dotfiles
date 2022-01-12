@@ -1,1 +1,1 @@
-nnoremap <leader>ps :Files<CR>
+nnoremap <C-p> :Files<CR>
