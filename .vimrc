@@ -53,6 +53,11 @@ Plug 'editorconfig/editorconfig-vim'
 if has('nvim')
 	" LSP support
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/cmp-vsnip'
+	Plug 'hrsh7th/vim-vsnip'
 
 	" Code formatting
 	Plug 'sbdchd/neoformat'
