@@ -89,7 +89,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
 
     -- launch internet browser
-    ((modm, xK_i), spawn "chromium"),
+    ((modm, xK_i), spawn "librewolf"),
     -- launch dmenu
     ((modm, xK_p), spawn "dmenu_run"),
     -- launch file manager
