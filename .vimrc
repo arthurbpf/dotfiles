@@ -49,7 +49,13 @@ Plug 'vim-airline/vim-airline-themes'
 " editorconfig plugin
 Plug 'editorconfig/editorconfig-vim'
 
-" neovim only plugins
+" auto close tags
+Plug 'alvan/vim-closetag'
+
+" code formatting
+Plug 'sbdchd/neoformat'
+
+" Neovim only plugins
 if has('nvim')
 	" LSP support
 	Plug 'neovim/nvim-lspconfig'
@@ -59,8 +65,9 @@ if has('nvim')
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
 
-	" Code formatting
-	Plug 'sbdchd/neoformat'
+	" snippets
+	Plug 'L3MON4D3/LuaSnip'
+	Plug 'rafamadriz/friendly-snippets'
 endif
 
 call plug#end()
@@ -68,6 +75,6 @@ call plug#end()
 augroup RUN_AT_START
     autocmd!
 
-	" Trims white spaces from the end of lines
+	" trims white spaces from the end of lines
     autocmd BufWritePre * %s/\s\+$//e
 augroup END
