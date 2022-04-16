@@ -61,6 +61,15 @@ zplug load
   alias ll="ls -l"
   alias enw="emacs -nw"
 
+  # Reboot directly to Windows
+  # Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu
+  reboot_to_windows ()
+  {
+    windows_title=$(sudo grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
+    sudo grub-reboot "$windows_title" && sudo reboot
+  }
+  alias reboot-to-windows="reboot_to_windows"
+
 ### Custom functions
   function forecast {
     curl wttr.in/$1
@@ -97,3 +106,5 @@ zplug load
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+. /opt/asdf-vm/asdf.sh
