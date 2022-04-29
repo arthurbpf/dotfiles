@@ -19,6 +19,7 @@ filetype plugin on
 syntax on
 
 let mapleader=" "
+let maplocalleader="\\"
 
 call plug#begin('~/.vim/plugged')
 
@@ -51,18 +52,26 @@ Plug 'alvan/vim-closetag'
 " code formatting
 Plug 'sbdchd/neoformat'
 
+" LaTeX features
+Plug 'lervag/vimtex'
+let g:vimtex_view_method = 'zathura'
+
 " Neovim only plugins
 if has('nvim')
 	" LSP support
 	Plug 'neovim/nvim-lspconfig'
+
+	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
-	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/cmp-path'
+	Plug 'hrsh7th/cmp-cmdline'
+
+	" support for vscode style snippets
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
 
-	" snippets
-	Plug 'L3MON4D3/LuaSnip'
+	" collection of snippets
 	Plug 'rafamadriz/friendly-snippets'
 endif
 
@@ -70,7 +79,13 @@ call plug#end()
 
 augroup RUN_AT_START
     autocmd!
-
 	" trims white spaces from the end of lines
     autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
+augroup FILETYPE_CONFIGS
+	autocmd!
+	autocmd FileType tex
+		\ set wrap |
+		\ set colorcolumn=0 |
 augroup END
