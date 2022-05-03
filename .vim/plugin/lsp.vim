@@ -1,6 +1,5 @@
 set completeopt=menu,menuone,noselect
 let g:vsnip_filetypes = {}
-let g:vsnip_filetypes
 
 lua <<EOF
   -- Setup nvim-cmp.
