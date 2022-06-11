@@ -1,5 +1,5 @@
 # Add node global applications to $PATH
-export PATH=$PATH:$HOME/.node/bin
+export PATH=$PATH:$HOME/.local/share/pnpm/global
 export PATH=$PATH:$HOME/.local/bin
 
 # Add GPG key to shell profile
