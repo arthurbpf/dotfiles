@@ -1,5 +1,7 @@
 # Add pnpm global installs to $PATH
-export PATH=$PATH:$HOME/.local/state/pnpm
+export PNPM_HOME=$HOME/.local/share/pnpm
+export PATH=$PATH:$PNPM_HOME
+
 export PATH=$PATH:$HOME/.local/bin
 
 # Add GPG key to shell profile
