@@ -70,6 +70,7 @@ if has('nvim')
 	" support for vscode style snippets
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
+	let g:vsnip_snippet_dir = "$HOME/.vim/snippets"
 
 	" collection of snippets
 	Plug 'rafamadriz/friendly-snippets'
