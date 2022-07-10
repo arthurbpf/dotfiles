@@ -89,9 +89,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
 
     -- launch internet browser
-    ((modm, xK_i), spawn "brave"),
-    -- launch dmenu
-    ((modm, xK_p), spawn "dmenu_run"),
+    ((modm, xK_i), spawn "librewolf"),
+    -- launch menu
+    -- ((modm, xK_p), spawn "dmenu_run"),
+    ((modm, xK_p), spawn "rofi -show combi -combi-modi \"run,drun,window,ssh\" -theme Arc-Dark"),
     -- launch file manager
     ((modm, xK_slash), spawn "pcmanfm"),
     -- take a screenshot
@@ -178,7 +179,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 main = do
     xmproc <- spawnPipe "xmobar -x 0 $HOME/.xmobarrc"
-    xmonad $ ewmh $ docks $ def
+    xmonad $ ewmhFullscreen $ ewmh $ docks $ def
         { terminal = myTerminal
         , focusFollowsMouse = myFocusFollowsMouse
         , clickJustFocuses = myClickJustFocuses
@@ -192,5 +193,5 @@ main = do
         , manageHook = myManageHook
         , startupHook = myStartupHook
         , logHook = myLogHook xmproc
-        , handleEventHook = handleEventHook def <+> fullscreenEventHook
+        , handleEventHook = handleEventHook def
         }
