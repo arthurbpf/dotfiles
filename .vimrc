@@ -56,6 +56,8 @@ Plug 'sbdchd/neoformat'
 Plug 'lervag/vimtex'
 let g:vimtex_view_method = 'zathura'
 
+Plug 'tpope/vim-commentary'
+
 " Neovim only plugins
 if has('nvim')
 	" LSP support
