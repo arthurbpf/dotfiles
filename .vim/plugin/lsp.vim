@@ -57,10 +57,13 @@ lua <<EOF
 	}, _config or {})
   end
 
+  require('lspconfig')['pyright'].setup(config())
   require('lspconfig')['tsserver'].setup(config())
   require('lspconfig')['jsonls'].setup(config())
   require('lspconfig')['clangd'].setup(config())
-  require('lspconfig')['pyright'].setup(config())
   require('lspconfig')['texlab'].setup(config())
+  require('lspconfig')['emmet_ls'].setup(config({
+	filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' }
+  }))
 EOF
 endif
