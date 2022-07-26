@@ -30,6 +30,7 @@ lua <<EOF
 	}),
 	sources = cmp.config.sources({
 	  -- { name = 'cmp_tabnine' },
+	  { name = 'orgmode' },
 	  { name = 'nvim_lsp' },
 	  { name = 'vsnip' },
 	  { name = 'buffer' },
@@ -65,5 +66,6 @@ lua <<EOF
   require('lspconfig')['emmet_ls'].setup(config({
 	filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' }
   }))
+  require('lspconfig')['cssls'].setup(config())
 EOF
 endif

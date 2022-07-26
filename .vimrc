@@ -76,6 +76,12 @@ if has('nvim')
 
 	" collection of snippets
 	Plug 'rafamadriz/friendly-snippets'
+
+	" Tree Sitter
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+	" orgmode implementation
+	Plug 'nvim-orgmode/orgmode'
 endif
 
 call plug#end()
