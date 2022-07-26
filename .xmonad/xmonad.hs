@@ -93,6 +93,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch menu
     -- ((modm, xK_p), spawn "dmenu_run"),
     ((modm, xK_p), spawn "rofi -show combi -combi-modi \"run,drun,window,ssh\" -theme Arc-Dark"),
+    -- launch emoji selector
+    ((modm .|. shiftMask, xK_p), spawn "rofi -modi emoji -show emoji -kb-custom-1 Ctrl+C -theme Arc-Dark"),
     -- launch file manager
     ((modm, xK_slash), spawn "pcmanfm"),
     -- take a screenshot
