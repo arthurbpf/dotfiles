@@ -60,6 +60,7 @@ zplug load
 ### Custom aliases
   alias ll="ls -l"
   alias enw="emacs -nw"
+  alias storage="cd /mnt/storage"
 
   # Reboot directly to Windows
   # Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu
@@ -102,6 +103,14 @@ zplug load
       mkdir infra/typeorm/repositories
       mkdir repositories
       mkdir services
+  }
+
+  function generate_psx_m3u {
+    for i in *.cue
+    do
+      title=$(echo "$i" | sed s'/.cue//g;s/ (Disc..)//g;s/ Disc..*$//g;s/ (.*//g')
+      echo "$i" >> "$title".m3u
+    done
   }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
