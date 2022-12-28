@@ -41,7 +41,7 @@ lua <<EOF
   local opts = { noremap=true, silent=true }
   local function config(_config)
 	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function(client, bufnr)
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gD', ':lua vim.lsp.buf.declaration()<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>', opts)
