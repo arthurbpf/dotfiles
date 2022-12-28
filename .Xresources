@@ -29,64 +29,65 @@ URxvt*.cursorColor: white
 
 ! Colors
 
-!! Gruvbox
-*background: #1d2021
-!*background: #282828
-!*background: #32302f
-*foreground: #ebdbb2
-! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
-! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
-! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
-! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
-! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
-! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
-! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
-! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+!!! Gruvbox
+!*background: #1d2021
+!!*background: #282828
+!!*background: #32302f
+!*foreground: #ebdbb2
+!! Black + DarkGrey
+!*color0:  #282828
+!*color8:  #928374
+!! DarkRed + Red
+!*color1:  #cc241d
+!*color9:  #fb4934
+!! DarkGreen + Green
+!*color2:  #98971a
+!*color10: #b8bb26
+!! DarkYellow + Yellow
+!*color3:  #d79921
+!*color11: #fabd2f
+!! DarkBlue + Blue
+!*color4:  #458588
+!*color12: #83a598
+!! DarkMagenta + Magenta
+!*color5:  #b16286
+!*color13: #d3869b
+!! DarkCyan + Cyan
+!*color6:  #689d6a
+!*color14: #8ec07c
+!! LightGrey + White
+!*color7:  #a89984
+!*color15: #ebdbb2
 
-!! Altered Tokyo
-!*.foreground: #a4acd0
-!*.background: #16161e
-!*.cursorColor: #f8f8f2
-!! black
-!*.color0:       #101010
-!*.color8:       #434758
-!! red
-!*.color1:       #ff5555
-!*.color9:       #ff6e6e
-!! green
-!*.color2:       #50fa7b
-!*.color10:      #69ff94
-!! yellow
-!*.color3:       #f1fa8c
-!*.color11:      #ffffa5
-!! blue
-!*.color4:       #bd93f9
-!*.color12:      #d6acff
-!! magenta
-!*.color5:       #ff79c6
-!*.color13:      #ff92df
-!! cyan
-!*.color6:       #8be9fd
-!*.color14:      #a4ffff
-!! white
-!*.color7:       #f8f8f2
-!*.color15:      #ffffff
+! Altered Tokyo
+*.foreground:   #a4acd0
+!*.background:   #16161e
+*.background:   #000000
+*.cursorColor:  #f8f8f2
+! black
+*.color0:       #101010
+*.color8:       #434758
+! red
+*.color1:       #ff5555
+*.color9:       #ff6e6e
+! green
+*.color2:       #50fa7b
+*.color10:      #69ff94
+! yellow
+*.color3:       #f1fa8c
+*.color11:      #ffffa5
+! blue
+*.color4:       #bd93f9
+*.color12:      #d6acff
+! magenta
+*.color5:       #ff79c6
+*.color13:      #ff92df
+! cyan
+*.color6:       #8be9fd
+*.color14:      #a4ffff
+! white
+*.color7:       #f8f8f2
+*.color15:      #ffffff
 
 !! Tokyo Night
 !*.foreground: #a4acd0
