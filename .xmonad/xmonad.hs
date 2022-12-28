@@ -88,8 +88,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- Restart xmonad
     ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
 
+    -- screen modes
+    ((modm, xK_F1), spawn "~/.screenlayout/default.sh"),
+    ((modm, xK_F2), spawn "~/.screenlayout/tv.sh"),
+    ((modm, xK_F3), spawn "~/.screenlayout/all.sh"),
+    -- launch steam
+    ((modm, xK_s), spawn "steam"),
+    -- launch lutris
+    ((modm, xK_g), spawn "lutris"),
     -- launch internet browser
-    ((modm, xK_i), spawn "librewolf"),
+    ((modm, xK_i), spawn "chromium"),
     -- launch menu
     -- ((modm, xK_p), spawn "dmenu_run"),
     ((modm, xK_p), spawn "rofi -show combi -combi-modi \"run,drun,window,ssh\" -theme Arc-Dark"),
