@@ -109,6 +109,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((0, xK_Print), spawn "flameshot gui"),
     -- open copyq
     ((modm, xK_v), spawn "copyq show"),
+    -- open DevDocs
+    ((modm, xK_v), spawn "devdocs-desktop"),
     -- lock screen
     ((modm .|. shiftMask, xK_l), spawn "sleep 1 && xset dpms force suspend")
     ]
@@ -184,6 +186,8 @@ myStartupHook = do
   spawnOnce "lxqt-policykit-agent &"
   spawnOnce "xss-lock ~/.lock.sh &"
   spawnOnce "openrgb -p active &"
+  spawnOnce "kdeconnect-indicator &"
+  spawnOnce "redshift-gtk &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
