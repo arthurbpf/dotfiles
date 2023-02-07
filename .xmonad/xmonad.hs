@@ -100,7 +100,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_i), spawn "chromium"),
     -- launch menu
     -- ((modm, xK_p), spawn "dmenu_run"),
-    ((modm, xK_p), spawn "rofi -show combi -combi-modi \"run,drun,window,ssh\" -theme Arc-Dark"),
+    ((modm, xK_p), spawn "rofi -show combi -combi-modi \"drun,run,window,ssh\" -theme Arc-Dark"),
     -- launch emoji selector
     ((modm .|. shiftMask, xK_p), spawn "rofi -modi emoji -show emoji -kb-custom-1 Ctrl+C -theme Arc-Dark"),
     -- launch file manager
