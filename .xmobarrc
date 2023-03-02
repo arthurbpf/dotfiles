@@ -1,8 +1,8 @@
 Config{
    -- appearance
-     font =         "xft:monospace:size=10:antialias=true:hinting=true"
+     font =         "monospace 9"
    , bgColor =      "black"
-   , fgColor =      "#646464"
+   , fgColor =      "#AAAAAA"
    , position =     TopSize L 90 22
    -- , border =       BottomB
    -- , borderColor =  "#646464"
@@ -10,7 +10,7 @@ Config{
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "  %UnsafeStdinReader%}{%cpu% | %memory% | %kbd% | %date% "
+   , template = "  %UnsafeStdinReader%}{%cpu% | %memory% | %kbd% | %battery% | %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
