@@ -1,5 +1,6 @@
 import qualified Data.Map as M
 import           Data.Monoid
+import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
 import           System.IO
 import           XMonad
@@ -112,7 +113,21 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- open DevDocs
     ((modm, xK_d), spawn "devdocs-desktop"),
     -- lock screen
-    ((modm .|. shiftMask, xK_l), spawn "sleep 1 && xset dpms force suspend")
+    ((modm .|. shiftMask, xK_l), spawn "sleep 1 && xset dpms force suspend"),
+
+
+    -- power button
+    ((0, xF86XK_PowerDown), spawn "doas systemctl hibernate"),
+    -- volume up
+    ((0, xF86XK_AudioRaiseVolume),  spawn "amixer -D pulse sset Master 10%+"),
+    -- volume down
+    ((0, xF86XK_AudioLowerVolume),  spawn "amixer -D pulse sset Master 10%-"),
+    -- volume mute
+    ((0, xF86XK_AudioMute),         spawn "amixer -D pulse sset Master toggle"),
+    -- brightness up
+    ((0, xF86XK_MonBrightnessUp),   spawn "brightnessctl set +10%"),
+    -- brightness down
+    ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set 10%-")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
