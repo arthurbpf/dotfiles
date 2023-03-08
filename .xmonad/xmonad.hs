@@ -110,7 +110,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- open copyq
     ((modm, xK_v), spawn "copyq show"),
     -- open DevDocs
-    ((modm, xK_v), spawn "devdocs-desktop"),
+    ((modm, xK_d), spawn "devdocs-desktop"),
     -- lock screen
     ((modm .|. shiftMask, xK_l), spawn "sleep 1 && xset dpms force suspend")
     ]
