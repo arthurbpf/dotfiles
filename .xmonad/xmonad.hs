@@ -127,7 +127,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- brightness up
     ((0, xF86XK_MonBrightnessUp),   spawn "brightnessctl set +10%"),
     -- brightness down
-    ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set 10%-")
+    ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set 10%-"),
+    -- calc
+    ((0, xF86XK_Calculator), spawn "qalculate-gtk")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -203,6 +205,7 @@ myStartupHook = do
   spawnOnce "openrgb -p active &"
   spawnOnce "kdeconnect-indicator &"
   spawnOnce "redshift-gtk &"
+  spawnOnce "powerkit &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
