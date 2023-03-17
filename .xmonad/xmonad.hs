@@ -205,7 +205,6 @@ myStartupHook = do
   spawnOnce "openrgb -p active &"
   spawnOnce "kdeconnect-indicator &"
   spawnOnce "redshift-gtk &"
-  spawnOnce "powerkit &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
