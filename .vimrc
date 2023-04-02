@@ -82,6 +82,9 @@ if has('nvim')
 
 	" orgmode implementation
 	Plug 'nvim-orgmode/orgmode'
+
+	" GitHub Copilot
+	Plug 'github/copilot.vim'
 endif
 
 call plug#end()
