@@ -59,6 +59,7 @@ zplug load
 
 ### Custom aliases
   alias ll="ls -l"
+  alias rm="trash"
   alias enw="emacs -nw"
   alias storage="cd /mnt/storage"
 
@@ -66,8 +67,8 @@ zplug load
   # Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu
   reboot_to_windows ()
   {
-    windows_title=$(sudo grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
-    sudo grub-reboot "$windows_title" && sudo reboot
+    windows_title=$(doas grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
+    doas grub-reboot "$windows_title" && doas reboot
   }
   alias reboot-to-windows="reboot_to_windows"
 
