@@ -90,9 +90,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
 
     -- screen modes
-    ((modm, xK_F1), spawn "~/.screenlayout/default.sh"),
-    ((modm, xK_F2), spawn "~/.screenlayout/tv.sh"),
-    ((modm, xK_F3), spawn "~/.screenlayout/all.sh"),
+    ((modm, xK_F1), spawn "~/.screenlayout/1.sh"),
+    ((modm, xK_F2), spawn "~/.screenlayout/2.sh"),
+    ((modm, xK_F3), spawn "~/.screenlayout/3.sh"),
     -- launch steam
     ((modm, xK_s), spawn "steam"),
     -- launch lutris
