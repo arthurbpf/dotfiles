@@ -115,7 +115,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- lock screen
     ((modm .|. shiftMask, xK_l), spawn "sleep 1 && xset dpms force suspend"),
 
-
     -- power button
     ((0, xF86XK_PowerDown), spawn "doas systemctl hibernate"),
     -- volume up
@@ -188,7 +187,7 @@ myLogHook h = do
 
 -- Startup hook
 myStartupHook = do
-  spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
+  spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_shift_toggle' &"
   spawnOnce "udiskie &"
   spawnOnce "picom --experimental-backends &"
   spawnOnce "nitrogen --restore &"
