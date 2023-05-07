@@ -31,7 +31,7 @@ numlockx &
 # Solves keyring problems
 /etc/X11/xinit/xinitrc.d/50-systemd-user.sh &
 
-~/.screenlayout/default.sh
+~/.screenlayout/1.sh
 
 case $session in
 	xmonad )
