@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 session=${1:-xmonad}
