@@ -19,6 +19,9 @@ source "$HOME/.zplug/init.zsh"
   zplug "zsh-users/zsh-syntax-highlighting"
   # zplug "softmoth/zsh-vim-mode"
   zplug "supercrabtree/k"
+  zplug "plugins/git", from:oh-my-zsh
+  zplug "plugins/git-auto-fetch", from:oh-my-zsh
+  zplug "plugins/git-prompt", from:oh-my-zsh
 
 ### Theme
   zplug "romkatv/powerlevel10k", as:theme, depth:1
