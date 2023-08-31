@@ -18,3 +18,5 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export EDITOR="nvim"
 # export PAGER="most"
+
+export ANDROID_HOME="/home/arthur/Android/Sdk"
