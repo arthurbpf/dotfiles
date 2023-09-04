@@ -98,9 +98,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch lutris
     ((modm, xK_g), spawn "lutris"),
     -- launch internet browser
-    ((modm, xK_i), spawn "chromium"),
+    ((modm, xK_i), spawn "librewolf"),
     -- launch secondary internet browser
-    ((modm .|. shiftMask, xK_i), spawn "librewolf"),
+    ((modm .|. shiftMask, xK_i), spawn "chromium"),
     -- launch menu
     -- ((modm, xK_p), spawn "dmenu_run"),
     ((modm, xK_p), spawn "rofi -show combi -combi-modi \"drun,run,window,ssh\" -theme Arc-Dark"),
