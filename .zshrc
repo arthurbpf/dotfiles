@@ -65,6 +65,7 @@ zplug load
   alias rm="trash"
   alias enw="emacs -nw"
   alias storage="cd /mnt/storage"
+  alias sx="startx ~/.xinitrc"
 
   # Reboot directly to Windows
   # Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu

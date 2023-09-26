@@ -36,8 +36,13 @@ case $session in
 	xmonad )
 		exec xmonad
 		;;
-	dwm )
-		exec dwm
+	xfce )
+		exec startxfce4
+		;;
+	gnome )
+		export XDG_SESSION_TYPE=x11
+		export GDK_BACKEND=x11
+		exec gnome-session
 		;;
 	# No known session, try to run it as command
 	* )
