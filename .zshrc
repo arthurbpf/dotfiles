@@ -17,8 +17,6 @@ source "$HOME/.zplug/init.zsh"
   zplug "zsh-users/zsh-completions"
   zplug "zsh-users/zsh-autosuggestions"
   zplug "zsh-users/zsh-syntax-highlighting"
-  # zplug "softmoth/zsh-vim-mode"
-  zplug "supercrabtree/k"
   zplug "plugins/git", from:oh-my-zsh
   zplug "plugins/git-auto-fetch", from:oh-my-zsh
   zplug "plugins/git-prompt", from:oh-my-zsh
@@ -77,16 +75,8 @@ zplug load
   alias reboot-to-windows="reboot_to_windows"
 
 ### Custom functions
-  function forecast {
-    curl wttr.in/$1
-  }
-
   function dictionary {
     curl dict://dict.org/d:$1
-  }
-
-  function cheat {
-    curl cheat.sh/$1
   }
 
   function cowsayfortune {
@@ -96,26 +86,6 @@ zplug load
 
       #echo "Selected cow: ${THISCOW}, from ${WHICHCOW}"
       fortune | cowsay -f $THISCOW -W 100
-  }
-
-  function node_module_folders {
-      mkdir infra
-      mkdir infra/http
-      mkdir infra/http/controllers
-      mkdir infra/http/routers
-      mkdir infra/typeorm
-      mkdir infra/typeorm/entities
-      mkdir infra/typeorm/repositories
-      mkdir repositories
-      mkdir services
-  }
-
-  function generate_psx_m3u {
-    for i in *.cue
-    do
-      title=$(echo "$i" | sed s'/.cue//g;s/ (Disc..)//g;s/ Disc..*$//g;s/ (.*//g')
-      echo "$i" >> "$title".m3u
-    done
   }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
