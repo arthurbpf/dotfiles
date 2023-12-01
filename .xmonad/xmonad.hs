@@ -193,9 +193,9 @@ myLogHook h = do
 myStartupHook = do
   spawnOnce "systemctl --user set-environment XDG_CURRENT_DESKTOP=xmonad"
   spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_shift_toggle' &"
-
   spawnOnce "udiskie &"
-  spawnOnce "picom --experimental-backends &"
+  -- spawnOnce "picom &"
+  spawnOnce "compfy -b &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
   spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
