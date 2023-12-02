@@ -3,14 +3,14 @@ Config{
      font =         "monospace 9"
    , bgColor =      "black"
    , fgColor =      "#AAAAAA"
-   , position =     TopSize L 90 22
+   , position =     TopSize L 100 22
    -- , border =       BottomB
    -- , borderColor =  "#646464"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "  %UnsafeStdinReader%}{%cpu% | %memory% | %kbd% | %battery% | %date% "
+   , template = "  %UnsafeStdinReader%}{%cpu% | %memory% | %kbd% | %battery% | %date% | %trayerpad%"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -103,5 +103,6 @@ Config{
         , Run Kbd            [ ("us(intl)" , "<fc=darkgreen>BR</fc>")
                              , ("us"       , "<fc=darkred>US</fc>")
                              ]
+		, Run Com "/home/arthur/.config/trayer/trayer-padding-icon.sh" [] "trayerpad" 10
         ]
    }

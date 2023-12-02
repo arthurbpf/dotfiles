@@ -192,9 +192,8 @@ myLogHook h = do
 -- Startup hook
 myStartupHook = do
   spawnOnce "systemctl --user set-environment XDG_CURRENT_DESKTOP=xmonad"
-  spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_shift_toggle' &"
+  spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
   spawnOnce "udiskie &"
-  -- spawnOnce "picom &"
   spawnOnce "compfy -b &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
@@ -208,7 +207,6 @@ myStartupHook = do
   spawnOnce "lxqt-policykit-agent &"
   spawnOnce "xss-lock ~/.lock.sh &"
   spawnOnce "openrgb -p active &"
-  spawnOnce "kdeconnect-indicator &"
   spawnOnce "redshift-gtk &"
   return()
 
