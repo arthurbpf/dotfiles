@@ -194,7 +194,6 @@ myStartupHook = do
   spawnOnce "systemctl --user set-environment XDG_CURRENT_DESKTOP=xmonad"
   spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
   spawnOnce "udiskie &"
-  spawnOnce "compfy -b &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
   spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
@@ -208,6 +207,7 @@ myStartupHook = do
   spawnOnce "xss-lock ~/.lock.sh &"
   spawnOnce "openrgb -p active &"
   spawnOnce "redshift-gtk &"
+  spawnOnce "sleep 1 && compfy -b &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.

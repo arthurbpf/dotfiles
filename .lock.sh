@@ -1,4 +1,4 @@
 #!/bin/bash
 openrgb -p off &
-slock
+xsecurelock
 openrgb -p active
