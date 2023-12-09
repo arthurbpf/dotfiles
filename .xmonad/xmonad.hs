@@ -205,8 +205,9 @@ myStartupHook = do
   spawnOnce "copyq &"
   spawnOnce "lxqt-policykit-agent &"
   spawnOnce "xss-lock ~/.lock.sh &"
-  spawnOnce "openrgb -p active &"
+  spawnOnce "openrgb --server && openrgb -p active &"
   spawnOnce "redshift-gtk &"
+  --spawnOnce "picom &"
   spawnOnce "sleep 1 && compfy -b &"
   return()
 
