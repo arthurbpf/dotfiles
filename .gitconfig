@@ -4,7 +4,7 @@
 	name = Arthur Fernandes
 	email = arthurbpfernandes@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore_global
 [alias]
 	ci = commit
