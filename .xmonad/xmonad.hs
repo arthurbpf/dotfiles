@@ -99,7 +99,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch lutris
     ((modm, xK_g), spawn "lutris"),
     -- launch internet browser
-    ((modm, xK_i), spawn "brave"),
+    ((modm, xK_i), spawn "librewolf"),
     -- launch secondary internet browser
     -- ((modm .|. shiftMask, xK_i), spawn "chromium"),
     -- launch menu
