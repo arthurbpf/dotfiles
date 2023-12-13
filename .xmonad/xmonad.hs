@@ -196,7 +196,6 @@ myStartupHook = do
   spawnOnce "udiskie &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
-  spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
   spawnOnce "blueman-applet &"
   spawnOnce "pasystray &"
   spawnOnce "nm-applet &"
@@ -205,10 +204,10 @@ myStartupHook = do
   spawnOnce "copyq &"
   spawnOnce "lxqt-policykit-agent &"
   spawnOnce "xss-lock ~/.lock.sh &"
-  spawnOnce "openrgb --server && openrgb -p active &"
+  spawnOnce "openrgb -p active &"
   spawnOnce "redshift-gtk &"
-  --spawnOnce "picom &"
-  spawnOnce "sleep 1 && compfy -b &"
+  spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
+  spawnOnce "~/.config/compfy/start.sh &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
