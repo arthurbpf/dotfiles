@@ -8,4 +8,8 @@ return {
 
   --
   'numToStr/Comment.nvim',
+  {
+    'lervag/vimtex',
+
+  },
 }
