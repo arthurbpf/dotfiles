@@ -192,7 +192,6 @@ myLogHook h = do
 -- Startup hook
 myStartupHook = do
   spawnOnce "systemctl --user set-environment XDG_CURRENT_DESKTOP=xmonad"
-  spawnOnce "setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
   spawnOnce "udiskie &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "xsetroot -cursor_name left_ptr &"
@@ -207,6 +206,7 @@ myStartupHook = do
   spawnOnce "openrgb -p active &"
   spawnOnce "redshift-gtk &"
   spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
+  spawnOnce "sleep 5 && setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
   spawnOnce "~/.config/compfy/start.sh &"
   return()
 
