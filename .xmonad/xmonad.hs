@@ -208,6 +208,8 @@ myStartupHook = do
   spawnOnce "trayer --edge top --height 22 --width 10 --align right --transparent true --alpha 0 --tint 0x000000 &"
   spawnOnce "sleep 5 && setxkbmap -layout us,us -variant ,intl -option 'grp:alt_space_toggle' &"
   spawnOnce "~/.config/compfy/start.sh &"
+  spawnOnce "discord --start-minimized &"
+  spawnOnce "steam -silent &"
   return()
 
 -- Run xmonad with the settings you specify. No need to modify this.
