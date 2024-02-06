@@ -2,14 +2,10 @@ return {
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-
-  -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  --
   'numToStr/Comment.nvim',
-  {
-    'lervag/vimtex',
-
-  },
+  'lervag/vimtex',
+  'lambdalisue/suda.vim',
+  'norcalli/nvim-colorizer.lua',
 }

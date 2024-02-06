@@ -162,9 +162,6 @@ local servers = {
   solc = {}
 }
 
--- Setup neovim lua configuration
-require('neodev').setup()
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -234,6 +231,10 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Setups that require late execution
+require('neodev').setup()
+require('colorizer').setup() -- asks to be the latest of them all
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

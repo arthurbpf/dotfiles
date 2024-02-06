@@ -91,10 +91,12 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "kitty htop"
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
+        "on-click": "kitty htop"
     },
     "temperature": {
         // "thermal-zone": 2,

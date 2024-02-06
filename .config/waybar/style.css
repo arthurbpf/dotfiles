@@ -1,3 +1,5 @@
+@import url("../../.cache/wal/colors-waybar.css");
+
 *{
     font-family: "FiraCode Nerd Font";
     font-weight: bold;
@@ -13,8 +15,8 @@ window#waybar {
     background: rgba(0, 0, 0, 0);
     /*border-bottom: 1px solid @unfocused_borders;*/
     /*border-radius: 10px;*/
-    /*color: #cba6f7;*/
-    /*border: 1px solid #cba6f7;*/
+    /*color: @foreground;*/
+    /*border: 1px solid @foreground;*/
 }
 
 window#waybar.hidden {
@@ -24,11 +26,11 @@ window#waybar.hidden {
 tooltip {
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    /*border: 1px solid #cba6f7;*/
+    /*border: 1px solid @foreground;*/
 }
 
 tooltip label {
-    color: #cba6f7;
+    color: @foreground;
     margin-right: 2px;
     margin-left: 2px;
 }
@@ -59,7 +61,7 @@ tooltip label {
 }
    
 #workspaces button.active {
-    color: #cba6f7;
+    color: @foreground;
     border-radius: 15px 15px 15px 15px;
 }
   
@@ -73,7 +75,7 @@ tooltip label {
 }
        
 #workspaces button:hover {
-    color: #9CCFD8;
+    color: lighter(@foreground);
     border-radius: 15px;
 }
 
@@ -96,6 +98,9 @@ tooltip label {
 #bluetooth,
 #taskbar,
 #taskbar button,
+#keyboard-state,
+#keyboard-state label,
+#keyboard-state label.docked,
 #workspaces,
 #custom-light_dark,
 #custom-updater,
@@ -117,7 +122,7 @@ tooltip label {
 #custom-weather.snowyIcyNight,
 #custom-weather.default, 
 #idle_inhibitor {
-  color: #cba7f7;
+  color: @foreground;
   padding: 0px 10px;
   border-radius: 10px;
 }

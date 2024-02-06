@@ -88,5 +88,12 @@ zplug load
       fortune | cowsay -f $THISCOW -W 100
   }
 
+  function wal-tile() {
+    wal -ns -i "$@"
+    swww img "$(< "${HOME}/.cache/wal/wal")"
+  }
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(zoxide init zsh)"
